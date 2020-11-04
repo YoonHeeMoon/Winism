@@ -1,7 +1,11 @@
 package com.winism.winism.controller.search;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+
+import javax.security.auth.kerberos.KeyTab;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -60,15 +64,63 @@ public class SearchController {
         }
         Pageable pageable = PageRequest.of(pageInt,10);
         
-        Page<wineList> list = searchDao.findAll(pageable);
+        Page<wineList> list = null;
         if(keyword == null){
             list = searchDao.findAll(pageable);
         }else{
-            list = searchDao.findByKONAMEContaining(pageable,keyword);
+            list = searchDao.findByKONAMEContainingOrENNAMEContaining(pageable,keyword,keyword);
         }
         
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+
+    @PostMapping("/search")
+    @ApiOperation(value = "고급 검색")
+    public Object advancedSearch (
+        @RequestParam(required = false)final String page,
+        @RequestParam(required = false)final String keyword,
+        @RequestParam(required = false)final String type,
+        @RequestParam(required = false)final String price,
+        @RequestParam(required = false)final String sweetness,
+        @RequestParam(required = false)final String acidity,
+        @RequestParam(required = false)final String tannin,
+        @RequestParam(required = false)final String body
+    )throws IOException {
+        //pagination
+		int pageInt=0;
+		if(page != null){
+			pageInt = Integer.parseInt(page);
+        }
+        Pageable pageable = PageRequest.of(pageInt,10);
+        String[] s = new String[8];
+        if(keyword==null){
+            s[0]="%";
+        }
+        if(type==null){
+            s[1]="%";
+        }
+        if(price==null){
+            s[2]="%";
+        }
+        if(sweetness==null){
+            s[3]="%";
+        }
+        if(acidity==null){
+            s[4]="%";
+        }
+        if(tannin==null){
+            s[5]="%";
+        }
+        if(body==null){
+            s[6]="%";
+        }
+
+        
+        Page<wineList> list = searchDao.findByTYPEAndPrice(pageable,s[0],s[0]);
+        
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
 
 
 

@@ -11,7 +11,19 @@
 | keyword   | String | 검색어 (null일 경우 전체 검색) |
 | page      | String | 페이지 (null일 경우 0페이지)   |
 
-## 2.2 상세 검색(당도,산도,온도) - (post/search/)
+## 2.2 고급 검색(당도,산도,온도) - (post/search/)
+| Parameter | Type   | Description                    |
+| --------- | ------ | ------------------------------ |
+| keyword   | String | 검색어 (null일 경우 전체 검색) |
+| page      | String | 페이지 (null일 경우 0페이지)   |
+| TYPE      | String | 옵션 : (레드,화이트,스파클링,고도주,로제,우리술,주정강화,기타)   |
+| price     | String | 가격   |
+| degree    | String | 도수   |
+| rate      | String | 별점   |
+| sweetness | String | 당도   |
+| acidity   | String | 산도   |
+| body      | String | 바디   |
+| tannin    | String | 타닌   |
 
 ## 2.3 상세 정보 (get/search/detail)
 
