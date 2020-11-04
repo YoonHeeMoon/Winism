@@ -32,13 +32,16 @@ public class ReviewEntity {
     @Column(name="date")
     String date;
 
-    @Column(name="winename")
-    String winename;
-
     @Column(name="userid")
     String userid;
 
     @Column(name="content")
     String content;
+
+    @Column(name="winename")
+    String winename;
+
+    @Column(name = "wid")
+    int wid;
 
 }

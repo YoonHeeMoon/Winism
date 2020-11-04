@@ -26,12 +26,63 @@ public class wineList{
 
     @Column(name = "KONAME")
     private String KONAME;
+    
     @Column(name = "ENNAME")
     private String ENNAME;
+
     @Column(name = "KOMAKER")
     private String KOMAKER;
+
     @Column(name = "ENMAKER")
     private String ENMAKER;
+
     @Column(name = "LOCAL")
     private String LOCAL;
+
+
+    @Column(name = "SWEETNESS")
+    private String SWEETNESS;
+
+    @Column(name = "ACIDITY")
+    private String ACIDITY;
+
+    @Column(name = "BODY")
+    private String BODY;
+
+    @Column(name = "TANNIN")
+    private String TANNIN;
+
+    @Column(name = "LAESTDEGREE")
+    private String LAESTDEGREE;
+
+    @Column(name = "USE")
+    private String USE;
+
+    @Column(name = "RECOMMANDATION")
+    private String RECOMMANDATION;
+
+    @Column(name = "GRAPE")
+    private String GRAPE;
+
+    @Column(name = "TEMPERATURE")
+    private String TEMPERATURE;
+    
+    @Column(name = "CAPACITY")
+    private String CAPACITY;
+
+    @Column(name = "GRADE")
+    private String GRADE;
+    
+    @Column(name = "TYPE")
+    private String TYPE;
+
+    @Column(name = "COST")
+    private String COST;
+
+    @Column(name = "YEAR")
+    private String YEAR;
+
+    @Column(name = "SPLITNAME")
+    private String SPLITNAME;
+
 }
