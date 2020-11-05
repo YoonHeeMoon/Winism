@@ -55,7 +55,7 @@ public class wineList{
     @Column(name = "LAESTDEGREE")
     private String LAESTDEGREE;
 
-    @Column(name = "USE")
+    @Column(name = "\"USE\"")
     private String USE;
 
     @Column(name = "RECOMMANDATION")
@@ -79,8 +79,9 @@ public class wineList{
     @Column(name = "COST")
     private String COST;
 
-    @Column(name = "YEAR")
+    @Column(name = "\"YEAR\"")
     private String YEAR;
+    
 
     @Column(name = "SPLITNAME")
     private String SPLITNAME;
